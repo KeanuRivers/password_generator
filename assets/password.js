@@ -18,7 +18,30 @@ function writePassword() {
     var lowercaseletter = confirm("Do you want lowercase letters in your password?")
     var numbers = confirm("Do you want numbers in your password?")
     var specialCharacter = confirm("Do you want special characters in your password?")
+    if (uppercaseletter) {
+      validCharacters += uletters
+    }
+    if (lowercaseletter) {
+      validCharacters += lletters
+    }
+    if (numbers) {
+      validCharacters += nmbrs
+    }
+    if (specialCharacter) {
+      validCharacters += scharacter
+    }
+    for (let i = 1; i <= passwordlength; i++) {
+      var index = Math.floor(Math.random() * validCharacters.length)
+      validPassword += validCharacters[index]
+    }
+    console.log(validPassword)
+
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = validPassword;
   }
+  
+
 
 
 }
